@@ -32,6 +32,34 @@ public class LogginLab {
         return (this.threshold > limit);
     }
 
+     //Sandeep Narayana Mangngalam 02/05/20//
+     //starts//
+
     // Write a method called thresholdReached, returns true if argument 'limit' is over the threshold.
+
+      public boolean thresholdReached(Integer limit) {
+          return (this.threshold < limit);
+      }
+
+      stops
+
     // Write a test for the method in the Test class.
+
+    //starts//
+
+    @org.junit.Test
+    public void thresholdExceeds() {
+        Integer finalLimit = 5;
+
+        LogginLab lab = new LogginLab();
+        lab.setThreshold(finalLimit);
+
+        for (Integer i = 1; i <= finalLimit; i++) {
+            if (lab.thresholdReached(i)) {
+                logger.log(Level.INFO, "Threshold finally reached!");
+                assertFalse(lab.thresholdReached(i));
+            } else {
+                logger.log(Level.INFO, "Threshold not reached! It is "+i);
+                assertTrue(lab.thresholdReached(i));
+            }
 }

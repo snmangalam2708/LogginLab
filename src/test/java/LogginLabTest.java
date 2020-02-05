@@ -22,12 +22,12 @@ public class LogginLabTest {
         lab.setThreshold(finalLimit);
 
         for (Integer i = 1; i <= finalLimit; i++) {
-            if (lab.thresholdExceeds(i)) {
-                logger.log(Level.INFO, "Threshold not reached! It is "+i);
-                assertTrue(lab.thresholdExceeds(i));
-            } else {
+            if (lab.thresholdReached(i)) {
                 logger.log(Level.INFO, "Threshold finally reached!");
-                assertFalse(lab.thresholdExceeds(i));
+                assertFalse(lab.thresholdReached(i));
+            } else {
+                logger.log(Level.INFO, "Threshold not reached! It is "+i);
+                assertTrue(lab.thresholdReached(i));
             }
         }
     }
